@@ -3,6 +3,7 @@
 /*.yaml
 /*.yml
 *.exe
+*.swp
 
 /prometheus
 /promtool
@@ -10,6 +11,7 @@ benchmark.txt
 /data
 /cmd/prometheus/data
 /cmd/prometheus/debug
+/cmd/prometheus/prometheus
 /benchout
 
 !/.travis.yml
@@ -23,3 +25,5 @@ npm_licenses.tar.bz2
 /web/ui/assets_vfsdata.go
 
 /vendor
+
+tags

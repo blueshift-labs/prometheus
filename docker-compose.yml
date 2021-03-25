@@ -1,0 +1,27 @@
+version: '3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+    container_name: elasticsearch
+    restart: always
+    environment:
+      - discovery.type=single-node
+    ports:
+      - '9200:9200'
+
+  elasticsearch_exporter:
+    image: justwatch/elasticsearch_exporter:1.1.0
+    container_name: elasticsearch_exporter
+    restart: always
+    links:
+      - elasticsearch
+    ports:
+      - '9114:9114'
+    command:
+      - '--es.uri=http://elasticsearch:9200'
+      - '--es.all'
+      - '--es.indices'
+      - '--es.indices_settings'
+      - '--es.cluster_settings'
+      - '--es.shards'
+      - '--es.snapshots'
